@@ -47,7 +47,7 @@ class ProductController {
       const product = await productInstance.update(req.params.id, req.body)
       if (!product)
         return res.status(404).json({ message: 'Product not found' })
-      const data = await productInstance.getById(product.id)
+      const data = await productInstance.getById(product._id)
       res.status(200).json({ message: 'Updated.', data })
     } catch (err) {
       res.status(err.errors ? 400 : 500).json({
