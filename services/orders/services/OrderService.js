@@ -36,6 +36,15 @@ class OrderService {
 
     return order
   }
+
+  getById(id) {
+    return this.orderModel.findById(id)
+  }
+
+  updateStatus(id, data) {
+    const { status } = data
+    return this.orderModel.findByIdAndUpdate(id, { status })
+  }
 }
 
 module.exports = OrderService
